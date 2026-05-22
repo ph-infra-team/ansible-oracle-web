@@ -1,0 +1,49 @@
+[awx]
+awx.example.com ansible_host=192.168.1.151
+
+[gitlab]
+gitlab.example.com ansible_host=192.168.1.152
+gitlabrunner.example.com ansible_host=192.168.1.168
+
+[jenkins]
+jenkins.example.com ansible_host=192.168.1.154
+jagent1.example.com ansible_host=192.168.1.170
+
+[artifactory]
+artifactory.example.com ansible_host=192.168.1.153
+
+[database]
+mysqldb.example.com ansible_host=192.168.1.163
+postgresdb.example.com ansible_host=192.168.1.169
+mongodb.example.com ansible_host=192.168.1.164
+oracledb.example.com ansible_host=192.168.1.177
+
+[elk]
+esmaster.example.com ansible_host=192.168.1.158
+esdata1.example.com ansible_host=192.168.1.159
+esdata2.example.com ansible_host=192.168.1.160
+logstash.example.com ansible_host=192.168.1.162
+kibana.example.com ansible_host=192.168.1.161
+
+[monitoring]
+prometheus.example.com ansible_host=192.168.1.156
+grafana.example.com ansible_host=192.168.1.157
+
+[controller]
+controller.example.com ansible_host=192.168.1.165
+
+[hub]
+hub.example.com ansible_host=192.168.1.166
+
+[eda]
+eda.example.com ansible_host=192.168.1.167
+
+[dns]
+dns.example.com ansible_host=192.168.1.155
+
+[wiki]
+wiki.example.com ansible_host=192.168.1.176
+
+[oracledb]
+oracledb.example.com ansible_host=192.168.1.177
+

@@ -1,0 +1,37 @@
+---
+oracle_directories:
+  - /u01/app/oracle/product/19.0.0/dbhome_1
+  - /u02/oradata
+oracle_packages:
+  - binutils
+  - gcc
+  - gcc-c++
+  - glibc
+  - glibc-devel
+  - ksh
+  - libaio
+  - libaio-devel
+  - libX11
+  - libXau
+  - libXi
+  - libXtst
+  - libXrender
+  - libXrender-devel
+  - make
+  - sysstat
+  - unixODBC
+  - unixODBC-devel
+  - net-tools
+  - smartmontools
+kernel_params:
+  fs.aio-max-nr: 1048576
+  fs.file-max: 6815744
+  kernel.shmall: 2097152
+  kernel.shmmax: 4294967295
+  kernel.shmmni: 4096
+  kernel.sem: "250 32000 100 128"
+  net.ipv4.ip_local_port_range: "9000 65500"
+  net.core.rmem_default: 262144
+  net.core.rmem_max: 4194304
+  net.core.wmem_default: 262144
+  net.core.wmem_max: 1048576

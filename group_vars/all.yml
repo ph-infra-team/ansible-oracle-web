@@ -1,0 +1,5 @@
+---
+oracle_user: oracle
+oracle_groups:
+  - oinstall
+  - dba

@@ -1,0 +1,53 @@
+---
+- name: Deploy and start Apache HTTPD service
+  hosts: oracledb
+  become: true
+  vars:
+    web_pkg: httpd
+    firewall_pkg: firewalld
+    web_service: httpd
+    firewall_service: firewalld
+    python_pkg: python3-PyMySQL
+    rule: http
+
+  tasks:
+    - name: Ensure required packages are installed and up to date
+      ansible.builtin.dnf:
+        name:
+          - "{{ web_pkg }}"
+          - "{{ firewall_pkg }}"
+          - "{{ python_pkg }}"
+        state: latest
+
+    - name: Ensure {{ firewall_service }} service is started and enabled
+      ansible.builtin.service:
+        name: "{{ firewall_service }}"
+        enabled: true
+        state: started
+
+    - name: Ensure {{ web_service }} service is started and enabled
+      ansible.builtin.service:
+        name: "{{ web_service }}"
+        enabled: true
+        state: started
+
+    - name: Place web content
+      ansible.builtin.copy:
+        content: "Example web content"
+        dest: /var/www/html/index.html
+
+    - name: Open firewall port for {{ rule }}
+      ansible.posix.firewalld:
+        service: "{{ rule }}"
+        permanent: true
+        immediate: true
+        state: enabled
+
+- name: Verify the Apache service
+  hosts: workstation
+  become: false
+  tasks:
+    - name: Ensure the webserver is reachable
+      ansible.builtin.uri:
+        url: http://oracledb.example.com
+        status_code: 200
